@@ -1,5 +1,14 @@
+# pycache
 __pycache__ 
-venv
-db.*
-.idea
 superfan/__pycache__/*
+movie_superfan/__pycache__/*
+movie_superfan/migrations/__pycache__/*
+
+# Virtual Env
+venv
+
+# Database
+db.*
+
+# PyCharm
+.idea
