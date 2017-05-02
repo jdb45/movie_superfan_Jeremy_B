@@ -1,0 +1,5 @@
+__pycache__ 
+venv
+db.*
+.idea
+superfan/__pycache__/*
