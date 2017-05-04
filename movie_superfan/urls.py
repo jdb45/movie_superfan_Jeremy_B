@@ -4,8 +4,9 @@ from django.contrib.auth import views as auth_views
 from . import views
 
 
+
 urlpatterns = [
 
-url(r'^$', views.homepage, name='homepage'),
+    url(r'^$', views.homepage, name='homepage'),
 
 ]

@@ -44,7 +44,7 @@ class UserRegistrationForm(UserCreationForm):
     def clean_email(self):
         email = self.cleaned_data['email']
         if not email:
-            raise ValidationError('Please enter an email address')
+            raise ValidationError('Please enter a valid email address')
 
         if User.objects.filter(email__iexact=email).exists():
             raise ValidationError('A user with that email address already exists')
@@ -62,4 +62,4 @@ class UserRegistrationForm(UserCreationForm):
         if commit:
             user.save()
 
-return user
+        return user
