@@ -4,6 +4,7 @@ from .models import *
 from .forms import UserRegistrationForm
 
 from django.contrib.auth.models import User
+from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth import update_session_auth_hash
 from django.shortcuts import render, redirect
 
@@ -19,7 +20,7 @@ def register(request):
                 username=request.POST['username'],
                 password=request.POST['password1'])
             login(request, user)
-            return redirect('')
+            return redirect('homepage')
 
         else:
             message = 'Please check the data you entered'
