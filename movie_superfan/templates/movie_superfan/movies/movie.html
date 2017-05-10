@@ -5,9 +5,24 @@
 {% for movie in movies %}
 
 <div style="position: relative" id="movie_{{ movie.pk }}">
-  <p><a href="{% url 'movie_detail' movie_pk=movie.pk %}">{{ movie.title }}</a></p>
+  <ul id="myUL">
+  <li><a href="{% url 'movie_detail' movie_pk=movie.pk %}">{{ movie.title }} - {{ movie.release_date }} <img width="100" height="10" src="{{ movie.poster_path }}" alt="image" class="img-responsive">
+</img></a>
+    </li>
+  </ul>
 </div>
 
 {% endfor %}
+<body>
+</body>
+
+<div>
+  <form method="POST" action="{% url 'movie_search' %}">
+  {% csrf_token %}
+  <input type="text" oninput="w3.filterHTML('#myUL', 'li', this.value)" id="search_movies" name="search" placeholder="Search Movies...." value ="">
+  <button id="search_button" type="submit" value ="search_movies">Search!</button>
+  </form>
+</div>
+
 
 {% endblock %}

@@ -10,16 +10,14 @@ User._meta.get_field('first_name')._blank = False
 
 
 
-
-
 class Movie(models.Model):
 
     title = models.CharField(max_length=200)
-    backdrop = models.CharField(max_length=200, blank=True)
+    backdrop = models.CharField(max_length=200, blank=True, null=True)
     movie_id = models.CharField(max_length=20)
-    description = models.CharField(max_length=600)
-    popularity = models.FloatField(blank=True)
-    poster_path = models.CharField(max_length=200, blank=True)
+    description = models.CharField(max_length=2000)
+    popularity = models.FloatField(blank=True, null=True)
+    poster_path = models.CharField(max_length=200, blank=True, null=True)
     release_date = models.CharField(max_length=20)
 
 

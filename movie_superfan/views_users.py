@@ -30,3 +30,12 @@ def register(request):
     else:
         form = UserRegistrationForm()
         return render(request, 'registration/register.html', {'form': form})
+
+
+def user_profile(request, user_pk):
+
+    user = User.objects.get(pk=user_pk)
+
+
+    return render(request, 'movie_superfan/users/user_profile.html',
+                  {'user': user})

@@ -3,6 +3,15 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django.forms import ValidationError
+from .models import Movie
+
+
+
+class NewMovieForm(forms.ModelForm):
+    class Meta:
+        model = Movie
+        fields = ('backdrop', 'movie_id', 'description', 'popularity', 'poster_path', 'release_date', 'title')
+
 
 
 class UserRegistrationForm(UserCreationForm):

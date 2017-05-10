@@ -2,6 +2,13 @@
 
 {% block content %}
 
+{% block additional_styles %}
+  <style>
+     body {
+
+     }
+  </style>
+{% endblock %}
 <body style="background-image:url({{ movie.backdrop }})">
 
 
@@ -11,11 +18,19 @@
 </div>
 </body>
 
+<form method="POST" action="{% url 'add_watchlist' %}">
+{% csrf_token %}
+{{ form }}
+<button id="add_to_watchlist" type="submit">Add to Watchlist</button>
+</form>
 
-  <p class="title_layout">{{ movie.title }} ( {{ movie.release_date }} )</p>
-  <p class="description_layout">{{ movie.description }}</p>
+<form method="POST" action="{% url 'add_viewed' %}">
+{% csrf_token %}
+{{ form }}
+<button id="add_to_viewed" type="submit">Add to Viewed List</button>
+</form>
 
-
-
+<p class="title_layout">{{ movie.title }} ( {{ movie.release_date }} )</p>
+<p class="description_layout">{{ movie.description }}</p>
 
 {% endblock %}
