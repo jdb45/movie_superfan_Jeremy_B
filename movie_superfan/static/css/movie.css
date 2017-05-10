@@ -1,0 +1,33 @@
+.movie_layout{
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 5);
+  width: 30%;
+}
+
+.title_layout{
+  color: #FFFFFF;
+  background-color:rgba(0,0,0,0.7);
+  position: absolute;
+  padding: 20px;
+  margin:0px;
+  left: 275px;
+  top: 0px;
+  width: auto
+  color: #FFFFFF;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 25px;
+  text-align: center
+}
+
+.description_layout{
+  color: #FFFFFF;
+  background-color:rgba(0,0,0,0.7);
+  position: absolute;
+  padding: 20px;
+  margin:100px;
+  left: 175px;
+  top: 100px;
+  width: auto;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 17px;
+  text-align: center
+}
