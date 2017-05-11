@@ -1,0 +1,186 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Tutorial &#8212; movie_superfan_docs 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Project Summary" href="summary.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="tutorial">
+<h1>Tutorial<a class="headerlink" href="#tutorial" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="movie-super-fan-intro">
+<h2>Movie Super Fan intro<a class="headerlink" href="#movie-super-fan-intro" title="Permalink to this headline">¶</a></h2>
+<p>This is a web app that allows users to keep track of movies they like.</p>
+</div>
+<div class="section" id="it-is-recommended-to-use-google-chrome-and-to-disable-network-the-cache">
+<h2>It is recommended to use Google Chrome and to disable network the cache.<a class="headerlink" href="#it-is-recommended-to-use-google-chrome-and-to-disable-network-the-cache" title="Permalink to this headline">¶</a></h2>
+<p>This is done be doing these steps:</p>
+<p><cite>click the settings icon on top right corner| More Tools | Developer Tools | Network | Disable cache</cite>
+Running the app
+The app starts with no data. Searching for movies sends API request to The Movie Database and returns the results. There for</p>
+<p>This product uses the TMDb API but is not endorsed or certified by TMDb. You must follow their rules when using their API!</p>
+<p>The celebs tab does not work yet.</p>
+</div>
+<div class="section" id="install-postgresql">
+<h2>Install postgresql<a class="headerlink" href="#install-postgresql" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://github.com/DjangoGirls/tutorial-extensions/blob/master/optional_postgresql_installation/README.md">https://github.com/DjangoGirls/tutorial-extensions/blob/master/optional_postgresql_installation/README.md</a></p>
+<p>Set the admin password.</p>
+<p>Start postgres running</p>
+<p><a href="#id1"><span class="problematic" id="id2">`</span></a>su postgres ` if on a mac/linux</p>
+<p><cite>pg_ctl start</cite>  enter username and password</p>
+<p>start postgres shell with <cite>psql</cite></p>
+<p>And create a user called lmnop</p>
+<p><code class="docutils literal"><span class="pre">`</span>
+<span class="pre">create</span> <span class="pre">user</span> <span class="pre">superfan</span> <span class="pre">with</span> <span class="pre">password</span> <span class="pre">'password_here';</span>
+<span class="pre">`</span></code></p>
+<p>create a database superfan  (Or whatever you want to call it)</p>
+<p><code class="docutils literal"><span class="pre">`</span>
+<span class="pre">create</span> <span class="pre">database</span> <span class="pre">superfan</span> <span class="pre">owner</span> <span class="pre">superfan;</span>
+<span class="pre">`</span></code></p>
+</div>
+<div class="section" id="environment-variable">
+<h2>Environment variable<a class="headerlink" href="#environment-variable" title="Permalink to this headline">¶</a></h2>
+<p>set environment variable called
+<cite>POSTGRES_SUPERFAN_USER_PASSWORD</cite>
+set the value to superfan&#8217;s user password</p>
+<p>(PC users, follow directions here. <a class="reference external" href="http://www.computerhope.com/issues/ch000549.htm">http://www.computerhope.com/issues/ch000549.htm</a>. Mac &amp; Linux users follow this <a class="reference external" href="https://natelandau.com/my-mac-osx-bash_profile/">https://natelandau.com/my-mac-osx-bash_profile/</a></p>
+<p>(Mac users may need to run these commands; these one time; replace 9.6 with your version of PostGreSQL, if it&#8217;s different</p>
+<p><cite>sudo ln -s /Library/PosgreSQL/9.6/lib/libssl.1.0.0.dylib /usr/local/lib
+sudo ln -s /Library/PosgreSQL/9.6/lib/libcrypto.1.0.0.dylib /usr/local/lib</cite></p>
+<p>And this when you start a new shell; or set it permanently in .bash_profile, again replace 9.6 with your version if different.
+<cite>export DYLD_FALLBACK_LIBRARY_PATH=/Library/PostgreSQL/9.6/lib:$DYLD_LIBRARY_PATH</cite>
+)</p>
+</div>
+<div class="section" id="to-install">
+<h2>To install<a class="headerlink" href="#to-install" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>Create and activate a virtual environment. Use Python3 as the interpreter.</li>
+<li>pip install -r requirements.txt</li>
+<li>cd movie_superfan/superfan</li>
+<li>python manage.py makemigrations</li>
+<li>python manage.py migrate</li>
+<li>python manage.py runserver</li>
+</ol>
+<p>Site at</p>
+<p>127.0.0.1:8000</p>
+</div>
+<div class="section" id="create-superuser">
+<h2>Create superuser<a class="headerlink" href="#create-superuser" title="Permalink to this headline">¶</a></h2>
+<p>from movie_superfan/superfan</p>
+<p>python manage.py createsuperuser</p>
+<p>enter username and password</p>
+<p>You will be able to use these to log into admin console at</p>
+<p>127.0.0.1:8000/admin</p>
+</div>
+<div class="section" id="the-movie-database-keys">
+<h2>The Movie Database keys<a class="headerlink" href="#the-movie-database-keys" title="Permalink to this headline">¶</a></h2>
+<p>For this program to work you need API keys from TMDb.</p>
+<p>Create a TMDb account
+[Get API keys from TMDb](<a class="reference external" href="https://www.themoviedb.org/">https://www.themoviedb.org/</a>). The following keys must
+be stored as system environment variables:
+<cite>THE_MOVIE_DB_KEY</cite></p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Tutorial</a><ul>
+<li><a class="reference internal" href="#movie-super-fan-intro">Movie Super Fan intro</a></li>
+<li><a class="reference internal" href="#it-is-recommended-to-use-google-chrome-and-to-disable-network-the-cache">It is recommended to use Google Chrome and to disable network the cache.</a></li>
+<li><a class="reference internal" href="#install-postgresql">Install postgresql</a></li>
+<li><a class="reference internal" href="#environment-variable">Environment variable</a></li>
+<li><a class="reference internal" href="#to-install">To install</a></li>
+<li><a class="reference internal" href="#create-superuser">Create superuser</a></li>
+<li><a class="reference internal" href="#the-movie-database-keys">The Movie Database keys</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="summary.html" title="previous chapter">Project Summary</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/tutorial.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, Jeremy Belisle.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.5</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="_sources/tutorial.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

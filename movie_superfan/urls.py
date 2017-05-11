@@ -6,7 +6,7 @@ from . import views, views_movies, views_users
 
 
 urlpatterns = [
-
+    
     url(r'^$', views.homepage, name='homepage'),
     url(r'^logout/$', views_users.logout,name='logout_user'),
 

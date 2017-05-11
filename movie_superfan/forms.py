@@ -6,7 +6,7 @@ from django.forms import ValidationError
 from .models import Movie, Lists
 
 
-
+# class for new movie entrys 
 class NewMovieForm(forms.ModelForm):
     class Meta:
         model = Movie
@@ -17,7 +17,7 @@ class NewListForm(forms.ModelForm):
         model = Lists
         fields = ('watch_list', 'viewed', 'favorite')
 
-
+# built in user class
 class UserRegistrationForm(UserCreationForm):
 
     class Meta:

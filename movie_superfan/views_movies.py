@@ -11,13 +11,14 @@ from django.contrib.auth import update_session_auth_hash
 tmdb.API_KEY = os.environ['THE_MOVIE_DB_KEY']
 
 def movie_list(request):
-
+    #displays all the movies in the list
     movies = Movie.objects.all().order_by('title')
 
     return render(request, 'movie_superfan/movies/movie.html',
                   {'movies': movies})
 
 def movie_detail(request, movie_pk):
+    #gets the selected movie and displays the details
     movie = get_object_or_404(Movie, pk=movie_pk)
     return render(request, 'movie_superfan/movies/movie_detail.html', {'movie': movie})
 
@@ -31,8 +32,10 @@ def search_movies(request):
         response = search.movie(query=user_search)
         for s in search.results:
             form = NewMovieForm()
+            # checking to see if the movie is already in the DB
             if Movie.objects.filter(movie_id=str(s['id'])).exists():
                 pass
+            # checking to make sure the movie is not a adult movie
             if str(s['adult']) == 'true':
                 pass
             else:
@@ -53,7 +56,7 @@ def search_movies(request):
 
 @login_required
 def add_watchlist(request, movie_pk):
-
+    # adding a movie to the users watchlist
     movie = get_object_or_404(Movie, pk=movie_pk)
 
     if request.method == 'POST':
@@ -73,7 +76,7 @@ def add_watchlist(request, movie_pk):
 
 @login_required
 def add_viewed(request, movie_pk):
-
+    # adding a movie to the users viewed list
     movie = get_object_or_404(Movie, pk=movie_pk)
 
     if request.method == 'POST':
@@ -93,7 +96,7 @@ def add_viewed(request, movie_pk):
 
 @login_required
 def add_favorite(request, movie_pk):
-
+    # adding a movie to the users favorite list
     movie = get_object_or_404(Movie, pk=movie_pk)
 
     if request.method == 'POST':
