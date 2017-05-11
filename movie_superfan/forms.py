@@ -3,7 +3,7 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django.forms import ValidationError
-from .models import Movie
+from .models import Movie, Lists
 
 
 
@@ -12,6 +12,10 @@ class NewMovieForm(forms.ModelForm):
         model = Movie
         fields = ('backdrop', 'movie_id', 'description', 'popularity', 'poster_path', 'release_date', 'title')
 
+class NewListForm(forms.ModelForm):
+    class Meta:
+        model = Lists
+        fields = ('watch_list', 'viewed', 'favorite')
 
 
 class UserRegistrationForm(UserCreationForm):

@@ -18,16 +18,22 @@
 </div>
 </body>
 
-<form method="POST" action="{% url 'add_watchlist' %}">
+<form method="POST" action="{% url 'add_watchlist' movie_pk=movie.pk %}">
 {% csrf_token %}
 {{ form }}
 <button id="add_to_watchlist" type="submit">Add to Watchlist</button>
 </form>
 
-<form method="POST" action="{% url 'add_viewed' %}">
+<form method="POST" action="{% url 'add_viewed' movie_pk=movie.pk  %}">
 {% csrf_token %}
 {{ form }}
 <button id="add_to_viewed" type="submit">Add to Viewed List</button>
+</form>
+
+<form method="POST" action="{% url 'add_favorite' movie_pk=movie.pk  %}">
+{% csrf_token %}
+{{ form }}
+<button id="add_to_favorite" type="submit">Add to Favorite List</button>
 </form>
 
 <p class="title_layout">{{ movie.title }} ( {{ movie.release_date }} )</p>

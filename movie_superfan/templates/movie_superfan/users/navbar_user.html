@@ -13,9 +13,9 @@
     </div>
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-        <li><a href="{% url 'movies' %}">Watchlist</a></li>
-        <li><a href="{% url 'movies' %}">Viewed</a></li>
-        <li><a href="#Celebs">Favorites</a></li>
+        <li><a href="{% url 'user_watchlist' user_pk=user.pk %}">Watchlist</a></li>
+        <li><a href="{% url 'user_viewlist' user_pk=user.pk %}">Viewed</a></li>
+        <li><a href="{% url 'user_favorite_list' user_pk=user.pk %}">Favorites</a></li>
       </ul>
     </div>
   </div>

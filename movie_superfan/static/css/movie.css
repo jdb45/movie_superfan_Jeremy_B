@@ -81,12 +81,26 @@ input[type=text]:focus {
   top: 160px;
 }
 
+#add_to_favorite{
+  position: absolute;
+  color: #FFFFFF;
+  background-color:rgba(0,0,0,0.7);
+  left: 620px;
+  top: 160px;
+}
+
 #nav_bar{
   position: absolute;
   left: 50px;
   top: 180px;
 }
 
-#test{
-  
+#list_header{
+  color: #FFFFFF;
+  background-color:rgba(255,0,0,1);
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 5);
+  font-family: "Times New Roman", Times, serif;
+  font-size: 25px;
+  text-align: center;
+  width: 30%;
 }

@@ -26,3 +26,16 @@ class Movie(models.Model):
                'Description: {} Popularity: {} Poster_Path: {} Release_Date: {}'\
             .format(self.title, self.movie_id, self.backdrop,
                     self.description, self.popularity, self.poster_path, self.release_date)
+
+
+class Lists(models.Model):
+    movie = models.ForeignKey(Movie, blank=False)
+    user = models.ForeignKey('auth.User', blank=False)
+    watch_list = models.BooleanField(default=False)
+    viewed = models.BooleanField(default=False)
+    favorite = models.BooleanField(default=False)
+
+    def __str__(self):
+        return 'List for user ID {} watch list {} viewed {} favorite {}'\
+            .format(self.user, self.movie, self.watch_list,
+                    self.viewed, self.favorite)

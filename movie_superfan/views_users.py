@@ -35,7 +35,34 @@ def register(request):
 def user_profile(request, user_pk):
 
     user = User.objects.get(pk=user_pk)
-
+    user_movies = Lists.objects.filter(user=user.pk)
 
     return render(request, 'movie_superfan/users/user_profile.html',
-                  {'user': user})
+                 {'user': user, 'movies': user_movies})
+
+
+def user_watchlist(request, user_pk):
+
+    user = User.objects.get(pk=user_pk)
+    user_movies = Lists.objects.filter(user=user.pk, watch_list=True)
+
+    return render(request, 'movie_superfan/users/watched_list.html',
+                 {'user': user, 'movies': user_movies})
+
+
+def user_viewlist(request, user_pk):
+
+    user = User.objects.get(pk=user_pk)
+    user_movies = Lists.objects.filter(user=user.pk, viewed=True)
+
+    return render(request, 'movie_superfan/users/viewed_list.html',
+                 {'user': user, 'movies': user_movies})
+
+
+def user_favorite_list(request, user_pk):
+
+    user = User.objects.get(pk=user_pk)
+    user_movies = Lists.objects.filter(user=user.pk, favorite=True)
+
+    return render(request, 'movie_superfan/users/favorite_list.html',
+                 {'user': user, 'movies': user_movies})

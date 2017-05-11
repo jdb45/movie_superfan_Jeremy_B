@@ -1,9 +1,14 @@
-from .forms import NewMovieForm
-from .models import Movie
+from .forms import NewMovieForm, NewListForm
+import os
+from .models import Movie, Lists
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 import tmdbsimple as tmdb
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth import update_session_auth_hash
 
-
+tmdb.API_KEY = os.environ['THE_MOVIE_DB_KEY']
 
 def movie_list(request):
 
@@ -18,7 +23,7 @@ def movie_detail(request, movie_pk):
 
 
 def search_movies(request):
-    
+
     if request.method == 'POST':
         post_request = request.POST
         user_search = str(post_request['search']) # getting the user search
@@ -45,9 +50,62 @@ def search_movies(request):
 
     return redirect('movies')
 
-def add_watchlist(request):
+
+@login_required
+def add_watchlist(request, movie_pk):
+
+    movie = get_object_or_404(Movie, pk=movie_pk)
+
+    if request.method == 'POST':
+
+        form = NewListForm(request.POST)
+
+        new_list = form.save(commit=False)
+
+        new_list.user = request.user
+        new_list.movie = movie
+        new_list.watch_list = True
+        new_list.save()
+        return redirect('movies')
+
+
+    return redirect('movies')
+
+@login_required
+def add_viewed(request, movie_pk):
+
+    movie = get_object_or_404(Movie, pk=movie_pk)
+
+    if request.method == 'POST':
+
+        form = NewListForm(request.POST)
+
+        new_list = form.save(commit=False)
+
+        new_list.user = request.user
+        new_list.movie = movie
+        new_list.viewed = True
+        new_list.save()
+        return redirect('movies')
+
     return redirect('movies')
 
 
-def add_viewed(request):
+@login_required
+def add_favorite(request, movie_pk):
+
+    movie = get_object_or_404(Movie, pk=movie_pk)
+
+    if request.method == 'POST':
+
+        form = NewListForm(request.POST)
+
+        new_list = form.save(commit=False)
+
+        new_list.user = request.user
+        new_list.movie = movie
+        new_list.favorite = True
+        new_list.save()
+        return redirect('movies')
+
     return redirect('movies')
