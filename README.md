@@ -2,6 +2,48 @@
 
 This is a web app that allows users to keep track of moives they like.
 
+### Install postgresql
+
+https://github.com/DjangoGirls/tutorial-extensions/blob/master/optional_postgresql_installation/README.md
+
+Set the admin password.
+
+Start postgres running
+
+`su postgres ` if on a mac/linux
+
+`pg_ctl start`  enter username and password
+
+start postgres shell with `psql`
+
+And create a user called lmnop
+
+```
+create user superfan with password 'password_here'; 
+```
+
+create a database superfan  (Or whatever you want to call it)
+
+```
+create database superfan owner superfan;
+```
+
+### Environment variable 
+
+set environment variable called
+`POSTGRES_SUPERFAN_USER_PASSWORD`
+set the value to superfan's user password
+
+(PC users, follow directions here. http://www.computerhope.com/issues/ch000549.htm. Mac & Linux users follow this https://natelandau.com/my-mac-osx-bash_profile/
+
+(Mac users may need to run these commands; these one time; replace 9.6 with your version of PostGreSQL, if it's different
+
+`sudo ln -s /Library/PosgreSQL/9.6/lib/libssl.1.0.0.dylib /usr/local/lib
+sudo ln -s /Library/PosgreSQL/9.6/lib/libcrypto.1.0.0.dylib /usr/local/lib`
+
+And this when you start a new shell; or set it permanently in .bash_profile, again replace 9.6 with your version if different.
+`export DYLD_FALLBACK_LIBRARY_PATH=/Library/PostgreSQL/9.6/lib:$DYLD_LIBRARY_PATH`
+)
 
 ### To install
 
@@ -40,5 +82,5 @@ For this program to work you need API keys from TMDb.
 Create a TMDb account
 [Get API keys from TMDb](https://www.themoviedb.org/). The following keys must
 be stored as system environment variables:
-* THE_MOVIE_DB_KEY
+`THE_MOVIE_DB_KEY`
 
