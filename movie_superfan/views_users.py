@@ -66,3 +66,8 @@ def user_favorite_list(request, user_pk):
 
     return render(request, 'movie_superfan/users/favorite_list.html',
                  {'user': user, 'movies': user_movies})
+
+
+def logout(request):
+
+    return render(request, 'movie_superfan/users/logout.html')

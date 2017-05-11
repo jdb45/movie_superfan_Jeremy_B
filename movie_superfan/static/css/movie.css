@@ -104,3 +104,90 @@ input[type=text]:focus {
   text-align: center;
   width: 30%;
 }
+
+#first{
+  color: #FFFFFF;
+  padding: 75px;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 35px;
+  text-align: center;
+
+}
+
+
+#second{
+  color: #FFFFFF;
+  padding: 40px;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 20px;
+  text-align: center;
+
+}
+
+#third{
+  color: #FFFFFF;
+  padding: 40px;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 20px;
+  text-align: center;
+
+}
+
+#forth{
+  color: #FFFFFF;
+  padding: 35px;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 20px;
+  text-align: center;
+
+}
+
+#carousel_button{
+  color: #FFFFFF;
+  background-color:rgba(255,0,0,1);
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 20px;
+  margin-bottom: 60px;
+  text-align: center;
+
+}
+
+#TMDb{
+  position: absolute;
+  padding: 5px;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.7);
+  top: 500px;
+  left: 0px;
+  color: #FFFFFF;
+  background-color:rgba(0,0,0,0.8);
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 15px;
+  text-align: center;
+
+}
+
+
+/* http://getbootstrap.com/ */
+.carousel {
+  height: 250px;
+  width: 75%;
+  margin-bottom: 60px;
+}
+/* http://getbootstrap.com/ */
+.carousel-caption {
+  z-index: 10;
+}
+
+/* http://getbootstrap.com/ */
+.carousel .item {
+  height: 300px;
+  width: 100%;
+}
+.carousel-inner > .item > img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  width: 100%;
+  height: 250px;
+}

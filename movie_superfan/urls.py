@@ -8,6 +8,7 @@ from . import views, views_movies, views_users
 urlpatterns = [
 
     url(r'^$', views.homepage, name='homepage'),
+    url(r'^logout/$', views_users.logout,name='logout_user'),
 
     url(r'^movies/$', views_movies.movie_list, name='movies'),
     url(r'^movies/detail/(?P<movie_pk>\d+)/$', views_movies.movie_detail, name='movie_detail'),

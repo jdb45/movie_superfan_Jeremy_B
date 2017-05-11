@@ -22,7 +22,7 @@
                   {% if user.is_authenticated %}
                       <p class="navbar-text">Logged in as
                         <a href="{% url 'user_profile' user_pk=user.pk %}">{{ user.username }}</a>
-                          <a href="{% url 'logout' %}?next={{ request.path }}">Log out</a>
+                          <a href="{% url 'logout' %}?next={% url 'logout_user' %}">Log out</a>
                       </p>
                   {% else %}
                   <li><a href="{% url 'register' %}?next={{ request.path }}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
